@@ -7,6 +7,7 @@ import renderHome from './views/homeView.js';
 import renderLogin from './views/loginView.js'
 import renderRegister from './views/registerView.js'
 import doLogout from './views/logout.js'
+import renderCars from './views/carsView.js';
 
 page(authMid);
 page(navigationMid);
@@ -16,7 +17,7 @@ page('/', renderHome);
 page('/login', renderLogin);
 page('/register', renderRegister);
 page('/logout', doLogout);
-page('/cars', () => console.log('cars'));
+page('/cars', renderCars);
 
 
 page.start();

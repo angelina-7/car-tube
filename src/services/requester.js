@@ -26,7 +26,7 @@ function request(method, url, data) {
             if (res.url.endsWith('logout'))
                 return res;
 
-            return res.json()
+            return res.json();
         }
         );
 }
