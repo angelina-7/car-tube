@@ -10,7 +10,7 @@ const guestNavTemplate = () => html`
 const authNavTemplate = (username) => html`
 <div id="profile">
     <a>Welcome ${username}</a>
-    <a href="#">My Listings</a>
+    <a href="/my/cars">My Listings</a>
     <a href="/cars/create">Create Listing</a>
     <a href="/logout">Logout</a>
 </div>

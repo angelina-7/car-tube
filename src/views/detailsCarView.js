@@ -36,7 +36,7 @@ export default function renderDetailsCar(ctx) {
             let isOwner = false;
             let user = getUser();
 
-            if(car._ownerId == user._id) isOwner = true;
+            if(car._ownerId == user?._id) isOwner = true;
 
             ctx.render(detailsCarTemplate(car, isOwner));
         });
