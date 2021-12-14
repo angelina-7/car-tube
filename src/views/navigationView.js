@@ -7,27 +7,27 @@ const guestNavTemplate = () => html`
 </div>
 `;
 
-const authNavTemplate = () => html`
+const authNavTemplate = (username) => html`
 <div id="profile">
-    <a>Welcome username</a>
+    <a>Welcome ${username}</a>
     <a href="#">My Listings</a>
     <a href="/cars/create">Create Listing</a>
     <a href="/logout">Logout</a>
 </div>
 `;
 
-const navTemplate = () => html`
+const navTemplate = (user) => html`
 <nav>
     <a class="active" href="/">Home</a>
     <a href="/cars">All Listings</a>
     <a href="#">By Year</a>
-    ${guestNavTemplate()}
+    ${user ? authNavTemplate(user.username) : guestNavTemplate()}
 
 </nav>
 `;
 
-export function renderNavigation(ctx) {
-    //todo add guest and private nav
+export function renderNavigation({user}) {
+    
 
-    return navTemplate();
+    return navTemplate(user);
 }
