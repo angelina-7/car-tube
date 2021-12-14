@@ -9,6 +9,7 @@ import renderRegister from './views/registerView.js'
 import doLogout from './views/logout.js'
 import renderCars from './views/carsView.js';
 import renderCreateCar from './views/createCarView.js';
+import renderDetailsCar from './views/detailsCarView.js';
 
 page(authMid);
 page(navigationMid);
@@ -20,7 +21,9 @@ page('/register', renderRegister);
 page('/logout', doLogout);
 page('/cars', renderCars);
 page('/cars/create', renderCreateCar);
-page('/cars/:id', renderCreateCar);
+page('/cars/:id/details', renderDetailsCar);
+page('/cars/:id/edit', renderDetailsCar);
+page('/cars/:id/delete', renderDetailsCar);
 
 
 page.start();
