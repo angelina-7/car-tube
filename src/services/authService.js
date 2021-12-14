@@ -17,13 +17,22 @@ export function register(username, password) {
         })
 }
 
+export function logout() {
+    return request.get(api.LOGOUT);
+}
+
 function saveUser(data) {
     localStorage.setItem('user', JSON.stringify(data));
 }
 
 export function getUser() {
-    let user = localStorage.getItem('user');
+    try {
+        let user = localStorage.getItem('user');
 
-    if (user) return JSON.parse(user);
+        if (user) return JSON.parse(user);
+    } catch (error) {
+        return undefined;
+    }
+
 
 }

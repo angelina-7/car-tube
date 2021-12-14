@@ -1,7 +1,10 @@
+import { getUser } from './authService.js'
+
 function request(method, url, data) {
     let options = {};
+    let user = getUser();
 
-    if(method != 'GET'){
+    if (method != 'GET') {
         options = {
             method,
             headers: {
@@ -11,8 +14,21 @@ function request(method, url, data) {
         };
     }
 
+    if (user) {
+        options.headers = {
+            ...(options.headers),
+            'X-Authorization': user.accessToken
+        }
+    }
+
     return fetch(url, options)
-            .then(res => res.json());
+        .then(res => {
+            if (res.url.endsWith('logout'))
+                return res;
+
+            return res.json()
+        }
+        );
 }
 
 export const get = request.bind(null, 'GET');

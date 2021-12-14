@@ -27,7 +27,5 @@ const navTemplate = (user) => html`
 `;
 
 export function renderNavigation({user}) {
-    
-
     return navTemplate(user);
 }
