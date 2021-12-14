@@ -8,6 +8,7 @@ import renderLogin from './views/loginView.js'
 import renderRegister from './views/registerView.js'
 import doLogout from './views/logout.js'
 import renderCars from './views/carsView.js';
+import renderCreateCar from './views/createCarView.js';
 
 page(authMid);
 page(navigationMid);
@@ -18,6 +19,8 @@ page('/login', renderLogin);
 page('/register', renderRegister);
 page('/logout', doLogout);
 page('/cars', renderCars);
+page('/cars/create', renderCreateCar);
+page('/cars/:id', renderCreateCar);
 
 
 page.start();

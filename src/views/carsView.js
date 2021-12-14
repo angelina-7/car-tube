@@ -19,15 +19,15 @@ const carTemplate = ({ imageUrl, brand, model, year, price, _id }) => html`
 </div>
 `;
 
-const carsTemplate = (cars) => html`
+const carsTemplate = (cars = []) => html`
 <section id="car-listings">
     <h1>Car Listings</h1>
     <div class="listings">
 
-        ${cars.map(x => carTemplate(x))}
-
-        <!-- Display if there are no records -->
-        <p class="no-cars">No cars in database.</p>
+        ${cars.length == 0 
+        ? html`<p class="no-cars">No cars in database.</p>`
+        : cars.map(x => carTemplate(x))}
+       
     </div>
 </section>
 `;
